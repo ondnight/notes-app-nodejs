@@ -1,0 +1,53 @@
+
+{{#if notes}}
+
+<table class="table table-bordered table-hover table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each notes}}
+    <tr>
+
+      <td>{{@index}}</td>
+      <td>{{title}}</td>
+      <td>{{description}}</td>
+      <td>
+        {{#if done}}
+
+        <a href="/notes/change/{{_id}}">
+          <button class="btn btn-success">Done</button>
+        </a>
+        {{else}}
+        <a href="/notes/change/{{_id}}">
+          <button class="btn btn-dark">unDone</button>
+        </a>
+        {{/if}}
+
+        <a href="/notes/edit/{{_id}}">
+          <button class="btn btn-info">Edit</button>
+        </a>
+        <a href="/notes/delete/{{_id}}">
+          <button class="btn btn-danger">Delete</button>
+        </a>
+
+      </td>
+    </tr>
+
+
+    {{/each}}
+  </tbody>
+</table>
+
+{{else}}
+
+<div class="text-center text-white">
+  <h1>No hay tareas</h1>
+</div>
+
+{{/if}}
