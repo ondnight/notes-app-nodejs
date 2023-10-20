@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js --exec babel-node"
+    "dev": "nodemon src/index.js --exec babel-node",
+    "build": "babel src -d distribution && ncp src/views distribution/views && ncp src/public distribution/public"
   },
   "keywords": [],
   "author": "",
@@ -28,6 +29,8 @@
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",
     "@babel/node": "^7.22.19",
-    "@babel/preset-env": "^7.23.2"
+    "@babel/plugin-transform-runtime": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "ncp": "^2.0.0"
   }
 }
